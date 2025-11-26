@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sruthi Bandari - Professional Portfolio</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #fff;
+            background: linear-gradient(135deg, #ff007a, #ff69b4, #1a1a1a, #000);
+            background-attachment: fixed;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: rgba(26, 26, 26, 0.9);
+            color: #fff;
+            padding: 0.5rem 0; /* Reduced padding */
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 1.5rem; /* Reduced font size */
+            font-weight: 800;
+            letter-spacing: 1px;
+            transition: transform 0.3s ease;
+        }
+
+        header h1:hover {
+            transform: scale(1.03);
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+            gap: 10px; /* Reduced gap */
+        }
+
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.8rem; /* Reduced font size */
+            text-transform: uppercase;
+            padding: 8px 15px; /* Reduced padding */
+            border-radius: 25px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        header nav ul li a:hover,
+        header nav ul li a.active {
+            background-color: #ff69b4;
+            color: #fff;
+        }
+
+        section {
+            padding: 80px 20px; /* Adjusted padding */
+            margin-top: 60px; /* Added margin to push content below header */
+            margin-bottom: 30px;
+            background-color: transparent;
+            border-radius: 12px;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            color: #fff;
+            text-align: center;
+            position: relative;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -8px;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background-color: #ff69b4;
+        }
+
+        #about .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .about-content, .skills {
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            flex: 1;
+            min-width: 300px;
+            max-width: 450px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .about-content:hover, .skills:hover {
+            transform: translateY(-5px);
+        }
+
+        .about-content img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            margin-bottom: 1.5rem;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .about-content h3, .skills h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 1rem;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .about-content p {
+            font-size: 0.95rem;
+            color: #e0e0e0;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: #e0e0e0;
+        }
+
+        .contact-info i {
+            color: #ff69b4;
+            font-size: 1.2rem;
+        }
+
+        .contact-info a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: #ff69b4;
+        }
+
+        .skills ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .skills ul li {
+            background-color: #ff69b4;
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .skills ul li:hover {
+            transform: scale(1.08);
+            background-color: #ff1493;
+        }
+
+        #projects {
+            text-align: center;
+        }
+
+        .project-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            margin-top: 2.5rem;
+        }
+
+        .project-item {
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            flex: 1;
+            min-width: 300px;
+            max-width: 400px;
+            text-align: left;
+            transition: transform 0.3s ease;
+        }
+
+        .project-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-item h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.75rem;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .project-details {
+            display: none;
+            margin-top: 1rem;
+        }
+
+        .project-details.active {
+            display: block;
+        }
+
+        .project-details p {
+            font-size: 0.95rem;
+            color: #e0e0e0;
+            margin-bottom: 1rem;
+        }
+
+        .project-details ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .project-details ul li {
+            background-color: #ff69b4;
+            color: #fff;
+            padding: 6px 12px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+
+        .project-button {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 600;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        .project-button:hover {
+            background-color: #ff69b4;
+        }
+
+        #education, #certifications, #internships, #achievements, #contact {
+            text-align: center;
+        }
+
+        .education-list, .certification-list, .internship-list, .achievement-list, .contact-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            margin-top: 2.5rem;
+        }
+
+        .education-item, .certification-item, .internship-item, .achievement-item, .contact-item {
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            flex: 1;
+            min-width: 300px;
+            max-width: 400px;
+            text-align: left;
+            transition: transform 0.3s ease;
+        }
+
+        .education-item:hover, .certification-item:hover, .internship-item:hover, .achievement-item:hover, .contact-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .education-item h3, .certification-item h3, .internship-item h3, .achievement-item h3, .contact-item h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.75rem;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .education-item p, .certification-item p, .internship-item p, .achievement-item p {
+            font-size: 0.95rem;
+            color: #e0e0e0;
+        }
+
+        .contact-item {
+            text-align: center;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 0.75rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            font-size: 0.95rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #ff69b4;
+            box-shadow: 0 0 5px rgba(255, 105, 180, 0.5);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            height: 120px;
+        }
+
+        .submit-button {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-button:hover {
+            background-color: #ff69b4;
+        }
+
+        footer {
+            background-color: rgba(26, 26, 26, 0.9);
+            color: #fff;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 1024px) {
+            .container {
+                max-width: 900px;
+            }
+
+            .about-content, .skills,
+            .project-item, .education-item,
+            .certification-item, .internship-item,
+            .achievement-item, .contact-item {
+                min-width: 250px;
+                max-width: 350px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            header nav ul {
+                flex-direction: column;
+                gap: 10px;
+                margin-top: 1rem;
+            }
+
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            section {
+                padding: 80px 15px;
+            }
+
+            section h2 {
+                font-size: 2.2rem;
+            }
+
+            .about-content img {
+                width: 120px;
+                height: 120px;
+            }
+
+            .about-content, .skills,
+            .project-item, .education-item,
+            .certification-item, .internship-item,
+            .achievement-item, .contact-item {
+                min-width: 100%;
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            section h2 {
+                font-size: 1.8rem;
+            }
+
+            .about-content img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .project-item h3, .education-item h3,
+            .certification-item h3, .internship-item h3,
+            .achievement-item h3, .contact-item h3 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Sruthi Bandari</h1>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
+                    <li><a href="#internships">Internships</a></li>
+                    <li><a href="#achievements">Achievements</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="about">
+        <div class="container">
+            <h2>Profile Desk</h2>
+            <div class="about-content">            
+                <h3>About Me</h3>
+                <p>A dedicated and enthusiastic individual with strong leadership, technical, and organizational skills. Passionate about software development, artificial intelligence, IoT, and cybersecurity. Seeking an opportunity to apply my knowledge and skills in a challenging environment that fosters growth and learning.</p>
+                <div class="contact-info">  
+                    <p><i class="fas fa-phone"></i> 9014425511</p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:sru4002@gmail.com">sru4002@gmail.com</a></p>
+                </div>
+            </div>
+            <div class="skills">
+                <h3>Core Competencies</h3>
+                <ul>
+                    <li>Python</li>
+                    <li>Java</li>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                    <li>SQL</li>
+                    <li>Arduino</li>
+                    <li>NLP</li>
+                    <li>Leadership</li>
+                    <li>Team Collaboration</li>
+                    <li>Problem Solving</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="project-grid">
+                <div class="project-item">
+                    <h3>IoT Sign Language Translator</h3>
+                    <button class="project-button" onclick="toggleDetails(this)">View Details</button>
+                    <div class="project-details">
+                        <p>Developed smart gloves with flex sensors, achieving 95% accuracy in real-time sign language translation for accessibility.</p>
+                        <ul>
+                            <li>Arduino</li>
+                            <li>Python</li>
+                            <li>IoT</li>
+                            <li>Flex Sensors</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <h3>Secure Voting Platform</h3>
+                    <button class="project-button" onclick="toggleDetails(this)">View Details</button>
+                    <div class="project-details">
+                        <p>Built a MERN stack voting system with bcrypt encryption, reducing unauthorized access risks by 80%.</p>
+                        <ul>
+                            <li>MERN Stack</li>
+                            <li>Bcrypt</li>
+                            <li>MongoDB</li>
+                            <li>React.js</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <h3>Task Manager App</h3>
+                    <button class="project-button" onclick="toggleDetails(this)">View Details</button>
+                    <div class="project-details">
+                        <p>Created a responsive to-do list app with Bootstrap, improving user productivity across devices.</p>
+                        <ul>
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>JavaScript</li>
+                            <li>Bootstrap</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <h3>Tic-Tac-Toe Game</h3>
+                    <button class="project-button" onclick="toggleDetails(this)">View Details</button>
+                    <div class="project-details">
+                        <p>A classic game of Tic-Tac-Toe was brought to life as an interactive web-based application.</p>
+                        <ul>
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>JavaScript</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <h3>SMS Detection System</h3>
+                    <button class="project-button" onclick="toggleDetails(this)">View Details</button>
+                    <div class="project-details">
+                        <p>Implemented an NLP-based filter in Python, improving spam detection accuracy by 90%.</p>
+                        <ul>
+                            <li>Python</li>
+                            <li>NLP</li>
+                            <li>Scikit-learn</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="container">
+            <h2>Education</h2>
+            <div class="education-list">
+                <div class="education-item">
+                    <h3>B.Tech, Cyber Security & IoT</h3>
+                    <p>MVGR College of Engineering, 8.4 CGPA, 2026</p>
+                </div>
+                <div class="education-item">
+                    <h3>Intermediate, CBSE</h3>
+                    <p>Sainik School Korukonda, 70%, 2022</p>
+                </div>
+                <div class="education-item">
+                    <h3>High School, CBSE</h3>
+                    <p>Kendriya Vidyalaya Sangathan, 80%, 2020</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications">
+        <div class="container">
+            <h2>Certifications</h2>
+            <div class="certification-list">
+                <div class="certification-item">
+                    <h3>Cisco Networking</h3>
+                    <p>Completed courses in Networks, Cybersecurity, Python, 2024</p>
+                </div>
+                <div class="certification-item">
+                    <h3>HP AI & Cybersecurity</h3>
+                    <p>Design Thinking, AI Basics, Cybersecurity Awareness, 2024</p>
+                </div>
+                <div class="certification-item">
+                    <h3>AWS EMR</h3>
+                    <p>Amazon EMR Getting Started, 2024</p>
+                </div>
+                <div class="certification-item">
+                    <h3>Edx Macroeconomics</h3>
+                    <p>Principles of Macroeconomics, 2023</p>
+                </div>
+                <div class="certification-item">
+                    <h3>HTML Fundamentals</h3>
+                    <p>Great Learning HTML Tutorial, 2023</p>
+                </div>
+                <div class="certification-item">
+                    <h3>State Board of Technical Education & Training-(AP)</h3>
+                    <p>Qualified Typewriting Lower -English (30WPM), 2024</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="internships">
+        <div class="container">
+            <h2>Internship & Training</h2>
+            <div class="internship-list">
+                <div class="internship-item">
+                    <h3>AI Internship, Techsaksham</h3>
+                    <p>Developed AI models, collaborated with Microsoft, AICTE, 2024</p>
+                </div>
+                <div class="internship-item">
+                    <h3>IoT Program, IIIT Sri City</h3>
+                    <p>Built IoT sanitizer dispenser, studied autonomous systems, 2023</p>
+                </div>
+                <div class="internship-item">
+                    <h3>CRESENCE 2K25, JNTU-GV</h3>
+                    <p>Presented papers, networked with IEEE, AICTE, 2025</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="achievements">
+        <div class="container">
+            <h2>Achievements & Extracurricular Activities</h2>
+            <div class="achievement-list">
+                <div class="achievement-item">
+                    <h3>Public Speaking</h3>
+                    <p>Delivered speeches on Independence & Republic Day, engaging diverse audiences.</p>
+                </div>
+                <div class="achievement-item">
+                    <h3>Leadership</h3>
+                    <p>Led teams and represented at National-level events, showcasing organizational skills.</p>
+                </div>
+                <div class="achievement-item">
+                    <h3>Event Organization</h3>
+                    <p>Organized student activities and freshers' events, fostering community engagement.</p>
+                </div>
+                <div class="achievement-item">
+                    <h3>NCC Certifications</h3>
+                    <p>NCC 'A', 'B', and 'C' Certificate holder, demonstrating discipline and commitment.</p>
+                </div>
+                <div class="achievement-item">
+                    <h3>Scouts & Guides</h3>
+                    <p>Participant in Scouts & Guide program (Tritiya Sopan Testing Camp), enhancing teamwork skills.</p>
+                </div>
+                <div class="achievement-item">
+                    <h3>Horse Riding</h3>
+                    <p>Recognized for horse riding as Republic Day National Flag cadet, showcasing versatility.</p>
+                </div>
+                <div class="achievement-item">
+                    <h3>Sports Skills</h3>
+                    <p>Skilled in rifle shooting and badminton, balancing physical and technical abilities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contact</h2>
+            <div class="contact-list">
+                <div class="contact-item">
+                    <h3>Get in Touch</h3>
+                    <div class="contact-form">
+                        <form action="#" method="post">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" required></textarea>
+                            </div>
+                            <button type="submit" class="submit-button">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Sruthi Bandari. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Active nav link on scroll
+        const navLinks = document.querySelectorAll('header nav ul li a');
+        const sections = document.querySelectorAll('section');
+
+        window.addEventListener('scroll', () => {
+            let currentSectionId = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= sectionTop - 100 && window.scrollY < sectionTop + sectionHeight - 100) {
+                    currentSectionId = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === currentSectionId) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Toggle project details
+        function toggleDetails(button) {
+            const details = button.nextElementSibling;
+            details.classList.toggle('active');
+            button.textContent = details.classList.contains('active') ? 'Hide Details' : 'View Details';
+        }
+    </script>
+</body>
+</html>
